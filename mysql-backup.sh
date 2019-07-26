@@ -43,7 +43,7 @@ EXCLUDES="mysql\|information_schema\|performance_schema"
 DATABASES=$(mysql --defaults-file=$MYSQL_DEFAULTS \
                   --batch \
                   --skip-column-names \
-                  -e "SHOW DATABASES;" | grep -E -v "$EXCLUDES")
+                  -e "SHOW DATABASES;" | grep -v "$EXCLUDES")
 
 # Backup database
 for db in $DATABASES; do
